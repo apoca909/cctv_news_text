@@ -1,0 +1,45 @@
+INFO:root:args:
+Namespace(device='cpu', epochs=10, bs=4, lr=0.001, warmup_steps=3000, log_step=2, gradient_accumulation=1, max_grad_norm=1.0, output_dir='tmp/', checkpoint='', save_steps=1000.0, seed=42)
+INFO:root:number of gpt2 parameters: 38878720
+INFO:root:starting training
+INFO:root:epoch 1
+INFO:root:Input Shape torch.Size([4, 128, 512]) Step 2 of total steps 2 of epoch 0, loss 0.0958
+INFO:root:epoch 1 finished
+INFO:root:time for one epoch: 4.594 s
+INFO:root:epoch 2
+INFO:root:Input Shape torch.Size([4, 128, 512]) Step 4 of total steps 4 of epoch 1, loss 0.07052
+INFO:root:epoch 2 finished
+INFO:root:time for one epoch: 11.43 s
+INFO:root:epoch 3
+INFO:root:Input Shape torch.Size([4, 128, 512]) Step 6 of total steps 6 of epoch 2, loss 0.07083
+INFO:root:epoch 3 finished
+INFO:root:time for one epoch: 14.16 s
+INFO:root:epoch 4
+INFO:root:Input Shape torch.Size([4, 128, 512]) Step 8 of total steps 8 of epoch 3, loss 0.06668
+INFO:root:epoch 4 finished
+INFO:root:time for one epoch: 11.17 s
+INFO:root:epoch 5
+INFO:root:Input Shape torch.Size([4, 128, 512]) Step 10 of total steps 10 of epoch 4, loss 0.05063
+INFO:root:epoch 5 finished
+INFO:root:time for one epoch: 12.77 s
+INFO:root:epoch 6
+INFO:root:Input Shape torch.Size([4, 128, 512]) Step 12 of total steps 12 of epoch 5, loss 0.0951
+INFO:root:epoch 6 finished
+INFO:root:time for one epoch: 11.72 s
+INFO:root:epoch 7
+INFO:root:Input Shape torch.Size([4, 128, 512]) Step 14 of total steps 14 of epoch 6, loss 0.04864
+INFO:root:epoch 7 finished
+INFO:root:time for one epoch: 11.82 s
+INFO:root:epoch 8
+INFO:root:Input Shape torch.Size([4, 128, 512]) Step 16 of total steps 16 of epoch 7, loss 0.05379
+INFO:root:epoch 8 finished
+INFO:root:time for one epoch: 13.62 s
+INFO:root:epoch 9
+INFO:root:Input Shape torch.Size([4, 128, 512]) Step 18 of total steps 18 of epoch 8, loss 0.0375
+INFO:root:epoch 9 finished
+INFO:root:time for one epoch: 13.11 s
+INFO:root:epoch 10
+INFO:root:Input Shape torch.Size([4, 128, 512]) Step 20 of total steps 20 of epoch 9, loss 0.04086
+INFO:root:epoch 10 finished
+INFO:root:time for one epoch: 11.96 s
+training finished                    
