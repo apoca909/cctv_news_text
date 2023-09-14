@@ -134,7 +134,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--device', default="cpu", type=str, required=False, help='')
     parser.add_argument('--epochs', default=10, type=int, required=False, help='')
-    parser.add_argument('--bs', default=2, type=int, required=False, help='batch size')
+    parser.add_argument('--bs', default=4, type=int, required=False, help='batch size')
     parser.add_argument('--lr', default=1e-3, type=float, required=False, help='')
     parser.add_argument('--warmup_steps', default=3000, type=int, required=False, help='')
     parser.add_argument('--log_step', default=2, type=int, required=False, help='')
@@ -143,8 +143,9 @@ def main():
     parser.add_argument('--output_dir', default='tmp/', type=str, required=False, help='')
     parser.add_argument('--checkpoint', default='', type=str, required=False, help='checkpoint')
     parser.add_argument('--save_steps', default=1e3, type=int, help='')
-    parser.add_argument('--b', default=0.2, type=float, help='')
+    parser.add_argument('--b', default=0.15, type=float, help='')
     parser.add_argument('--seed', default=42, type=int, required=False, help='')
+    parser.add_argument('--data', default='./share/', type=str, required=False, help='')
     args = parser.parse_args()
 
     logging.info('args:\n' + args.__repr__())
@@ -174,7 +175,7 @@ def main():
     max_grad_norm = args.max_grad_norm
     output_dir = args.output_dir
     b = args.b
-
+    data = args.data
     if  args.checkpoint == "":
         model = GPT2LMHeadModel(config=model_config)
     else:
@@ -199,7 +200,7 @@ def main():
     for epoch in range(epochs):
         logging.info('start epoch {} '.format(epoch + 1))
         t0 = time.time()
-        batches = get_examples(dirname='./share/', bs=bs, emb_dim=model_conf['n_embd'])
+        batches = get_examples(dirname=data, bs=bs, emb_dim=model_conf['n_embd'])
         for b, batch in enumerate(batches):
             total_steps += 1
             step += 1
@@ -213,7 +214,7 @@ def main():
                 loss = loss / gradient_accumulation
             #  loss backward
             
-            loss = torch.abs((loss - b)) + b
+            #loss = torch.abs((loss - b)) + b
             loss.backward()
             torch.nn.utils.clip_grad_norm_(model.parameters(), max_grad_norm)
 
